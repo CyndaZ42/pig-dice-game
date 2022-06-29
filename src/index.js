@@ -5,14 +5,14 @@ import './css/styles.css';
 // import Dice from '../src/dice.js';
 // import Player from '../src/player.js';
 import Game from '../src/game.js';
-
+ 
 //Document Ready
 $(document).ready(function() {
   $(".row").hide();
   $("form#startGame").submit((event) => {
     event.preventDefault();
     let maxPlayers = parseInt($("#numberOfPlayers").val());
-    let numberOfDice = $("#numberOfDice").val();
+    let numberOfDice = parseInt($("#numberOfDice").val());
     let pigDice = new Game(maxPlayers, numberOfDice);
     pigDice.populatePlayers();
     startForm(pigDice);
@@ -24,15 +24,14 @@ $(document).ready(function() {
     });
   });
 });
-
+ 
 //UI Logic
-
+ 
 const rollDiceForm = (game) => {
   game.takeTurn();
-  console.log(game.dice1.value + 1)
   scoreboard(game);
 };
-
+ 
 const passTurnForm = (game) => {
   game.passTurn();
   scoreboard(game);
@@ -47,12 +46,11 @@ const passTurnForm = (game) => {
     $("#cpuGame").show();
   }
 };
-
+ 
 const startForm = (game) => {
   if (game.numberOfDice < 2) {
-    $("#dice2").hide();
-    $("#pigs2").hide();
-  } 
+    $("#grunt").hide();
+  }
   $(".row").show();
   $("#winner").hide();
   $("#rollDice").show();
@@ -61,7 +59,7 @@ const startForm = (game) => {
   $("#cpuGame").hide();
   scoreboard(game);
 };
-
+ 
 const scoreboard = (game) => {
   let scoreString = " ";
   for (let i = 1; i <= game.maxPlayers; i++) {
@@ -72,8 +70,8 @@ const scoreboard = (game) => {
   $("#score").text(scoreString);
   $("#nextTurn").text("Player " + game.currentPlayer + "'s turn");
   $("#currentPlayer").text("Current score: " + game.players[game.currentPlayer].score +  " Points this turn: " + game.players[game.currentPlayer].turnScore);
-  $("#dice").text("You rolled a " + game.players[game.currentPlayer].dice1);
-  $("#dice2").text("You rolled a " + game.players[game.currentPlayer].dice2);
+  $("#dice").text("You rolled a " + game.dice1.value);
+  $("#dice2").text("You rolled a " + game.dice2.value);
   $("#pigs").html(game.dice1.pigString);
   $("#pigs2").html(game.dice2.pigString);
 };

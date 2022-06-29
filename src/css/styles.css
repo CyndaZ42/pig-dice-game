@@ -1,13 +1,13 @@
 #rollDice, #passTurn {
   display: none;
 }
-
+ 
 #winner {
   color: rgb(255, 87, 121);
   font-size: xx-large;
   font-style: italic;
 }
-
+ 
 #pigs, #pigs2 {
   background-color: aliceblue;
   height: 12rem;
@@ -31,7 +31,19 @@
  grid-template-rows: 3.5rem 3.5rem 3.5rem;
  grid-template-columns: 3.5rem 3.5rem 3.5rem;
 }
-
+ 
+.oink {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 1em;
+}
+ 
+#grunt, #snort {
+  flex: 1 0 100px;
+  text-align: center;
+  box-sizing: border-box;
+}
+ 
 .col-4, .col-8, .col-12 {
  padding: 20pt;
  border: 0.6rem ridge rgba(229, 163, 206, 0.918);
@@ -39,24 +51,24 @@
  border-radius: 0.3rem;
  margin-block: 20pt;
 }
-
+ 
 .row {
   padding-left: 2px;
   padding-right: 2px;
 }
-
+ 
 body {
   padding: 20pt;
   text-align: center;
   font-family: impact;
   background-color: pink;
 }
-
-.container { 
+ 
+.container {
   margin-top:20;
-
+ 
 }
-
+ 
 h1, h2 {
   font-family: 'Fascinate', cursive;
   color: rgb(149, 114, 140);
@@ -65,18 +77,18 @@ h1, h2 {
   margin: 20px;
   background-color: rgba(240, 225, 249, 0.938);
 }
-
+ 
 #winner img {
   height: 10rem;
 }
-
-
-
+ 
+ 
+ 
 #pigs img, #pigs2 img {
   align-items: center;
   height: 3.5rem;
 }
-
+ 
 img:nth-child(2) {
   grid-area: b;
 }
@@ -95,7 +107,7 @@ img:nth-child(6) {
 img:nth-child(odd):last-child {
   grid-area: g;
 }
-
+ 
 button {
   padding: 6px;
   margin:5px;
@@ -107,12 +119,12 @@ button {
   font-family: impact;
   width: 25%;
 }
-
-input { 
+ 
+input {
   color:rgb(153, 93, 128);
   background-color: lightpink;
 }
-
+ 
 html {
   background-color: pink;
   background-image: url(/img/movingDice.gif);
